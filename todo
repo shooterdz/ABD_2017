@@ -1,5 +1,0 @@
-export le path vers spark
-installer pyspark
-installer pip et pip3
-dl spark et le mettre au bon endroit export le path
-utiliser bin/spark-submit pour lancer du code
