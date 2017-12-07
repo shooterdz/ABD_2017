@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
 	spark = SparkSession.builder.appName("Question 1").getOrCreate()
 
-	lignes = spark.read.text(sys.argv[1]).repartition(10).rdd.map(lambda r : r[0])
+	lignes = spark.read.text(sys.argv[1]).repartition(1).rdd.map(lambda r : r[0])
 	lignes = lignes.map(lambda x: x.split(' ')).flatMap(lambda y: removeId(y))
 	lignes = lignes.map(lambda x: x.split(',')).map(lambda a: (a[0], int(a[1]))).reduceByKey(lambda a,b:int(int(a) + int(b))).sortBy(lambda a : a[1], ascending = False)
 
